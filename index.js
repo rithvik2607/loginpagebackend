@@ -14,9 +14,13 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 
 //Middlewares
 app.use(express.json());
+app.use((res, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 //Route middlewares
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
 
-app.listen(3000, () => console.log('Server up and running'));
+app.listen(5000, () => console.log('Server up and running'));
