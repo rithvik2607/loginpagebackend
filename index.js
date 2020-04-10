@@ -3,6 +3,8 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 //Import routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
@@ -16,6 +18,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 //Middlewares
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 
 
 app.get('/api/user', function (req, res, next) {
