@@ -17,6 +17,11 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 app.use(express.json());
 app.use(cors());
 
+
+app.get('/api/user', function (req, res, next) {
+  console.log('This is CORS-enabled for all origins!');
+})
+
 //Route middlewares
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
