@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
-const morgan = require('morgan');
 //Import routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/posts');
