@@ -15,17 +15,18 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
   () => console.log('Connected to DB!'));
 
 //Middlewares
+app.use(function(req,res,next) {
+  res.header('Access-Control-Allow-Methods','POST,GET,OPTIONS');
+  res.header('Access-Control-Allow-Origin','*');
+  next();
+});
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
-
-app.get('/api/user', function (req, res, next) {
-  console.log('This is CORS-enabled for all origins!');
-})
-
 //Route middlewares
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
+
 
 app.listen(5000, () => console.log('Server up and running'));
