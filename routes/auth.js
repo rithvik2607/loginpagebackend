@@ -41,6 +41,7 @@ router.post('/signup', async (req,res) => {
 router.post('/login', async (req,res) => {
   //Validate the data before making a new user
   const {error} = loginValidation(req.body);
+  console.log(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
   //Checking if the user already exists

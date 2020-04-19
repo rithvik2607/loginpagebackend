@@ -15,14 +15,14 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
   () => console.log('Connected to DB!'));
 
 //Middlewares
-app.use(function(req,res,next) {
-  res.header('Access-Control-Allow-Methods','POST,GET,OPTIONS');
-  res.header('Access-Control-Allow-Origin','*');
-  next();
-});
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
+app.use(function(req,res,next) {
+  res.header('Access-Control-Allow-Methods','POST,GET,OPTIONS');
+  res.header('Access-Control-Allow-Origin','*');
+    next();
+});
 
 //Route middlewares
 app.use('/api/user', authRoute);

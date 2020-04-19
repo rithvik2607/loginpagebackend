@@ -4,19 +4,19 @@ const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
-    min: 6,
+    min: 1,
     max: 255
   },
   lastName: {
     type: String,
     required: true,
-    min: 6,
+    min: 1,
     max: 255
   },
   username: {
     type: String,
     required: true,
-    min: 6,
+    min: 1,
     max: 255
   },
   regNo: {
@@ -40,7 +40,6 @@ const userSchema = new mongoose.Schema({
   blockDet: {
     type: String,
     required: true,
-    min: 1,
     max: 255
   },
   address: {
